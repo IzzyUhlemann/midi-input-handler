@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgjnxbli5f7m3"]
+
+[ext_resource type="Script" path="res://scripts/midi_controller.gd" id="1_gf60m"]
+[ext_resource type="PackedScene" uid="uid://de5c3tvpwjskb" path="res://scenes/piano_key_white.tscn" id="1_hn3wh"]
+[ext_resource type="Script" path="res://scripts/piano_display.gd" id="1_qxgdy"]
+[ext_resource type="PackedScene" uid="uid://cuibck0ppxxio" path="res://scenes/piano_key_black.tscn" id="2_xlwfx"]
+
+[node name="MIDIController" type="Node"]
+script = ExtResource("1_gf60m")
+metadata/_edit_use_anchors_ = true
+
+[node name="PianoDisplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_qxgdy")
+
+[node name="Key48" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-769, -316)
+pitch = 48
+
+[node name="Key50" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-659, -316)
+pitch = 50
+
+[node name="Key52" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-549, -316)
+pitch = 52
+
+[node name="Key53" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-439, -316)
+pitch = 53
+
+[node name="Key55" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-329, -316)
+pitch = 55
+
+[node name="Key57" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-219, -316)
+pitch = 57
+
+[node name="Key59" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(-109, -316)
+pitch = 59
+
+[node name="Key49" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(-714, -366)
+pitch = 49
+
+[node name="Key51" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(-604, -366)
+pitch = 51
+
+[node name="Key54" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(-384, -366)
+pitch = 54
+
+[node name="Key56" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(-274, -366)
+pitch = 56
+
+[node name="Key58" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(-164, -366)
+pitch = 58
+
+[node name="Key60" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(1, -316)
+pitch = 60
+
+[node name="Key62" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(111, -316)
+pitch = 62
+
+[node name="Key64" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(221, -316)
+pitch = 64
+
+[node name="Key65" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(331, -316)
+pitch = 65
+
+[node name="Key67" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(441, -316)
+pitch = 67
+
+[node name="Key69" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(551, -316)
+pitch = 69
+
+[node name="Key71" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(661, -316)
+pitch = 71
+
+[node name="Key72" parent="PianoDisplay" instance=ExtResource("1_hn3wh")]
+position = Vector2(771, -316)
+pitch = 72
+
+[node name="Key61" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(56, -366)
+pitch = 61
+
+[node name="Key63" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(166, -366)
+pitch = 63
+
+[node name="Key66" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(386, -366)
+pitch = 66
+
+[node name="Key68" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(496, -366)
+pitch = 68
+
+[node name="Key70" parent="PianoDisplay" instance=ExtResource("2_xlwfx")]
+position = Vector2(606, -366)
+pitch = 70
+
+[connection signal="key_pressed" from="." to="PianoDisplay" method="_on_midi_controller_key_pressed"]
+[connection signal="key_released" from="." to="PianoDisplay" method="_on_midi_controller_key_released"]

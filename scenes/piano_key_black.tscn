@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuibck0ppxxio"]
+
+[ext_resource type="Texture2D" uid="uid://b2pffl5pugofi" path="res://assets/images/blackkey_off.png" id="1_f2u8y"]
+[ext_resource type="Script" path="res://scripts/piano_key.gd" id="1_v4kea"]
+[ext_resource type="Texture2D" uid="uid://b5slwyx3jyndf" path="res://assets/images/blackkey_on.png" id="2_1bgr1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wu30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f2u8y")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1bgr1")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_wdei3"]
+variation_embolden = 0.7
+
+[node name="PianoKeyBlack" type="Node2D"]
+script = ExtResource("1_v4kea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 115.481)
+scale = Vector2(1, 0.402139)
+sprite_frames = SubResource("SpriteFrames_3wu30")
+animation = &"off"
+autoplay = "off"
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = -38.0
+offset_top = 99.0
+offset_right = 38.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_wdei3")
+theme_override_font_sizes/font_size = 72
+text = "a"
+horizontal_alignment = 1
